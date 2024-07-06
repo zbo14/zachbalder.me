@@ -1,8 +1,9 @@
 {
   "name": "zachbalder.me",
-  "private": true,
   "version": "0.1.0",
   "type": "module",
+  "license": "ISC",
+  "author": "Zach Balder",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc && vite build",
