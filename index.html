@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Zach Balder: software engineer and music artist."
+    />
+    <meta property="og:url" content="https://zachbalder.me" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Zach Balder: software engineer and music artist."
+    />
+    <meta property="og:image" content="/images/me.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="zachbalder.me" />
+    <meta property="twitter:url" content="https://zachbalder.me" />
+    <meta
+      name="twitter:description"
+      content="Zach Balder: software engineer and music artist."
+    />
+    <meta name="twitter:image" content="/assets/images/me-li.png" />
+    <title>ZB</title>
+    <meta property="og:title" content="Zach Balder" />
+    <meta name="twitter:title" content="Zach Balder" />
+
+    <!-- Shoelace -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/themes/light.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/shoelace-autoloader.js"
+    ></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <svg
+      id="background"
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      height="100%"
+    >
+      <pattern
+        id="pattern"
+        x="0"
+        y="0"
+        patternUnits="userSpaceOnUse"
+        width="180"
+        height="160"
+      >
+        <g>
+          <path
+            d="M 0 80 
+      C 30 48, 60 48, 90 80 
+      S 144 112, 180 80"
+            fill="transparent"
+            stroke="#f89ed2"
+            stroke-width="2"
+          ></path>
+        </g>
+        <animateTransform
+          attributeType="xml"
+          attributeName="patternTransform"
+          type="translate"
+          from="0"
+          to="180"
+          begin="0"
+          dur="1s"
+          repeatCount="indefinite"
+        ></animateTransform>
+      </pattern>
+      <rect
+        filter="url(#glow)"
+        x="0"
+        y="0"
+        width="100%"
+        height="100%"
+        fill="url(#pattern)"
+      ></rect>
+      <filter id="glow">
+        <feFlood
+          result="flood"
+          flood-color="#f571bd"
+          flood-opacity="0.8"
+        ></feFlood>
+        <feComposite
+          in="flood"
+          result="mask"
+          in2="SourceGraphic"
+          operator="in"
+        ></feComposite>
+        <feMorphology
+          in="mask"
+          result="dilated"
+          operator="dilate"
+          radius="3"
+        ></feMorphology>
+        <feGaussianBlur
+          in="dilated"
+          result="blurred"
+          stdDeviation="5"
+        ></feGaussianBlur>
+        <feMerge>
+          <feMergeNode in="blurred"></feMergeNode>
+          <feMergeNode in="SourceGraphic"></feMergeNode>
+        </feMerge>
+      </filter>
+    </svg>
+    <main>
+      <section>
+        <h1>Zach Balder</h1>
+        <h2>Software Engineer & Music Artist</h2>
+        <div>
+          <sl-icon-button
+            name="instagram"
+            href="https://instagram.com/zachbalder"
+            label="Link to Instagram"
+            target="_blank"
+          ></sl-icon-button>
+          <sl-icon-button
+            name="youtube"
+            href="https://www.youtube.com/channel/UCKpwkPRYAibdffNpds90x9g"
+            label="Link to Instagram"
+            target="_blank"
+          ></sl-icon-button>
+          <sl-icon-button
+            name="github"
+            href="https://github.com/zbo14"
+            label="Link to GitHub"
+            target="_blank"
+          ></sl-icon-button>
+          <sl-icon-button
+            name="linkedin"
+            href="https://www.linkedin.com/in/zachary-balder"
+            label="Link to LinkedIn"
+            target="_blank"
+          ></sl-icon-button>
+          <sl-tooltip content="Resume">
+            <sl-icon-button
+              name="file-earmark-person"
+              href="/documents/resume.pdf"
+              label="Link to Instagram"
+            ></sl-icon-button>
+          </sl-tooltip>
+        </div>
+        <sl-card class="controls-container">
+          <div class="controls">
+            <sl-icon-button
+              label="Play/Pause sound"
+              name="play-fill"
+              id="playback-button"
+            ></sl-icon-button>
+            <sl-icon-button
+              label="Sine wave shepard tone"
+              id="sine-button"
+              class="wave-button selected"
+              src="/icons/sine.svg"
+            ></sl-icon-button>
+            <sl-icon-button
+              label="Triangle wave shepard tone"
+              id="triangle-button"
+              class="wave-button"
+              src="/icons/triangle.svg"
+            ></sl-icon-button>
+            <sl-icon-button
+              label="Square wave shepard tone"
+              id="square-button"
+              class="wave-button"
+              src="/icons/square.svg"
+            ></sl-icon-button>
+            <sl-icon-button
+              label="Sawtooth wave shepard tone"
+              id="sawtooth-button"
+              class="wave-button"
+              src="/icons/sawtooth.svg"
+            ></sl-icon-button>
+            <div class="fader-container">
+              <sl-icon name="volume-up"></sl-icon>
+              <sl-range
+                class="fader"
+                id="volume-fader"
+                min="0"
+                max="1"
+                step="0.1"
+                value="0.5"
+              ></sl-range>
+            </div>
+            <div class="fader-container">
+              <sl-icon name="speedometer2"></sl-icon>
+              <sl-range
+                class="fader"
+                id="speed-fader"
+                min="0.5"
+                max="2"
+                step="0.1"
+                value="1"
+              ></sl-range>
+            </div>
+          </div>
+        </sl-card>
+      </section>
+      <section class="grid">
+        <div>
+          <iframe
+            title="Spotify Single"
+            src="https://open.spotify.com/embed/track/178FOnaOWTrznsQo45G7n4?utm_source=generator&theme=0"
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+          <p>
+            A song I recorded and released as part of an electronic pop project
+          </p>
+        </div>
+        <div>
+          <iframe
+            title="Saxophone/Synth remix"
+            src="https://www.youtube.com/embed/W6mtNrucIIc?si=YaJs5ImEIMg248ZT"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <p>I like to make saxophone/synth remixes in my free time</p>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

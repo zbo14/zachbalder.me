@@ -1,0 +1,21 @@
+{
+  "name": "zachbalder.me",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "format": "prettier -w src *.{html,ts}; stylelint *.css src/*.css --fix"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.2",
+    "stylelint": "^16.6.1",
+    "stylelint-config-standard": "^36.0.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-sitemap": "^0.6.2"
+  }
+}
