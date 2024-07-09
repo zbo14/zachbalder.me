@@ -22,9 +22,10 @@
       content="Zach Balder: software engineer and music artist."
     />
     <meta name="twitter:image" content="/assets/images/me-li.png" />
-    <title>ZB</title>
+    <title>Zach Balder</title>
     <meta property="og:title" content="Zach Balder" />
     <meta name="twitter:title" content="Zach Balder" />
+    <link rel="icon" type="image/png" href="/icons/favicon.png" />
 
     <!-- Shoelace -->
     <link
@@ -151,42 +152,21 @@
               name="file-earmark-person"
               href="/documents/resume.pdf"
               label="Link to Instagram"
+              target="_blank"
+            ></sl-icon-button>
+          </sl-tooltip>
+          <sl-tooltip content="Email me">
+            <sl-icon-button
+              name="envelope"
+              href="mailto:zmbalder@gmail.com"
+              label="Send me an email"
             ></sl-icon-button>
           </sl-tooltip>
         </div>
-        <sl-card class="controls-container">
-          <div class="controls">
-            <sl-icon-button
-              label="Play/Pause sound"
-              name="play-fill"
-              id="playback-button"
-            ></sl-icon-button>
-            <sl-icon-button
-              label="Sine wave shepard tone"
-              id="sine-button"
-              class="wave-button selected"
-              src="/icons/sine.svg"
-            ></sl-icon-button>
-            <sl-icon-button
-              label="Triangle wave shepard tone"
-              id="triangle-button"
-              class="wave-button"
-              src="/icons/triangle.svg"
-            ></sl-icon-button>
-            <sl-icon-button
-              label="Square wave shepard tone"
-              id="square-button"
-              class="wave-button"
-              src="/icons/square.svg"
-            ></sl-icon-button>
-            <sl-icon-button
-              label="Sawtooth wave shepard tone"
-              id="sawtooth-button"
-              class="wave-button"
-              src="/icons/sawtooth.svg"
-            ></sl-icon-button>
-            <div class="fader-container">
-              <sl-icon name="volume-up"></sl-icon>
+        <div class="controls">
+          <sl-card class="faders-container">
+            <div class="faders">
+              <label for="volume-fader">Volume</label>
               <sl-range
                 class="fader"
                 id="volume-fader"
@@ -195,9 +175,7 @@
                 step="0.1"
                 value="0.5"
               ></sl-range>
-            </div>
-            <div class="fader-container">
-              <sl-icon name="speedometer2"></sl-icon>
+              <label for="speed-fader">Speed</label>
               <sl-range
                 class="fader"
                 id="speed-fader"
@@ -207,28 +185,57 @@
                 value="1"
               ></sl-range>
             </div>
-          </div>
-        </sl-card>
+          </sl-card>
+          <sl-card class="buttons-container">
+            <div class="buttons">
+              <sl-icon-button
+                label="Play/Pause sound"
+                name="play-fill"
+                id="playback-button"
+              ></sl-icon-button>
+              <sl-icon-button
+                label="Sine wave shepard tone"
+                id="sine-button"
+                class="wave-button selected"
+                src="/icons/sine.svg"
+              ></sl-icon-button>
+              <sl-icon-button
+                label="Triangle wave shepard tone"
+                id="triangle-button"
+                class="wave-button"
+                src="/icons/triangle.svg"
+              ></sl-icon-button>
+              <sl-icon-button
+                label="Square wave shepard tone"
+                id="square-button"
+                class="wave-button"
+                src="/icons/square.svg"
+              ></sl-icon-button>
+              <sl-icon-button
+                label="Sawtooth wave shepard tone"
+                id="sawtooth-button"
+                class="wave-button"
+                src="/icons/sawtooth.svg"
+              ></sl-icon-button>
+            </div>
+          </sl-card>
+        </div>
       </section>
       <section class="grid">
         <div>
           <iframe
-            title="Spotify Single"
-            src="https://open.spotify.com/embed/track/178FOnaOWTrznsQo45G7n4?utm_source=generator&theme=0"
-            frameborder="0"
-            allowfullscreen
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
+            title="SoundCloud Single"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1754123085&color=%23f571bd&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
           ></iframe>
-          <p>
-            A song I recorded and released as part of an electronic pop project
-          </p>
+          <p>A song I released for an electronic pop project</p>
         </div>
         <div>
           <iframe
-            title="Saxophone/Synth remix"
-            src="https://www.youtube.com/embed/W6mtNrucIIc?si=YaJs5ImEIMg248ZT"
-            title="YouTube video player"
+            src="https://www.youtube.com/embed/W6mtNrucIIc?si=4dVvDOLCY2OHxr8C"
+            title="Saxophone/Synth Remix"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"

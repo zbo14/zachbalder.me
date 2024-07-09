@@ -8,8 +8,8 @@ const STROKE_WIDTH = 2;
 
 const playbackButton = document.getElementById('playback-button');
 const waveButtons = document.querySelectorAll('.wave-button');
-const volumeFader = document.getElementById('volume-fader');
-const speedFader = document.getElementById('speed-fader');
+const volumeFader = document.getElementById('volume-fader') as any;
+const speedFader = document.getElementById('speed-fader') as any;
 const background = document.getElementById(
   'background'
 ) as unknown as SVGSVGElement;
@@ -134,13 +134,17 @@ for (const waveButton of waveButtons) {
   });
 }
 
-volumeFader?.addEventListener('sl-change', (event) => {
+volumeFader?.addEventListener('sl-change', (event: Event) => {
   volume = gain.gain.value = +(event.target as HTMLInputElement).value;
   height = volume * BACKGROUND_MIDPOINT_HEIGHT * 0.8;
   setBackgroundPattern();
-});
+})
 
-speedFader?.addEventListener('sl-change', (event) => {
+volumeFader.tooltipFormatter = (volume: number): string => {
+  return `${volume * 100}%`;
+};
+
+speedFader?.addEventListener('sl-change', (event: Event) => {
   speed = +(event.target as HTMLInputElement).value;
   setBackgroundPattern();
 
@@ -148,3 +152,7 @@ speedFader?.addEventListener('sl-change', (event) => {
     source.playbackRate.value = speed;
   }
 });
+
+speedFader.tooltipFormatter = (speed: number): string => {
+  return `${speed}x`;
+};
