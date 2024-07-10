@@ -17,10 +17,10 @@ const pattern = background.getElementById('pattern');
 
 background.pauseAnimations();
 
-const audioContext = new AudioContext();
-const gain = audioContext.createGain();
-
 type Wave = 'sine' | 'triangle' | 'square' | 'sawtooth';
+
+let audioContext = new AudioContext();
+let gain = audioContext.createGain();
 
 gain.connect(audioContext.destination);
 let volume = (gain.gain.value = 0.5);
@@ -30,6 +30,21 @@ let wave: Wave = 'sine';
 let source: AudioBufferSourceNode | null = null;
 let speed = 1;
 let height = volume * BACKGROUND_MIDPOINT_HEIGHT * 0.8;
+
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    audioContext = new AudioContext();
+    gain = audioContext.createGain();
+    gain.connect(audioContext.destination);
+    gain.gain.value = volume;
+
+    if (source) {
+      source.playbackRate.value = speed;
+    }
+  } else if (isPlaying) {
+    onPlayback();
+  }
+});
 
 const paths = {
   sine() {
@@ -102,7 +117,13 @@ function stop() {
   }
 }
 
-playbackButton?.addEventListener('click', () => {
+playbackButton?.addEventListener('click', onPlayback);
+
+function onPlayback() {
+  if (!playbackButton) {
+    return;
+  }
+
   if (isPlaying) {
     playbackButton.setAttribute('name', 'play-fill');
     stop();
@@ -112,7 +133,7 @@ playbackButton?.addEventListener('click', () => {
   }
 
   isPlaying = !isPlaying;
-});
+}
 
 for (const waveButton of waveButtons) {
   waveButton.addEventListener('click', function (this: HTMLButtonElement) {
@@ -138,7 +159,7 @@ volumeFader?.addEventListener('sl-change', (event: Event) => {
   volume = gain.gain.value = +(event.target as HTMLInputElement).value;
   height = volume * BACKGROUND_MIDPOINT_HEIGHT * 0.8;
   setBackgroundPattern();
-})
+});
 
 volumeFader.tooltipFormatter = (volume: number): string => {
   return `${volume * 100}%`;
