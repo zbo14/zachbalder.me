@@ -23,6 +23,15 @@
   font-style: normal;
 }
 
+a:hover,
+a:visited:hover {
+  color: var(--sl-color-primary-500);
+}
+
+a:visited {
+  color: var(--sl-color-neutral-900);
+}
+
 body {
   margin: 0;
   height: 100%;
@@ -93,6 +102,17 @@ sl-icon-button {
   height: 2rem;
 }
 
+.info-button {
+  &.selected {
+    color: var(--sl-color-primary-500);
+  }
+
+  font-size: 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: var(--sl-spacing-2x-small) var(--sl-spacing-2x-small) 0 0;
+}
+
 .buttons-container {
   --border-color: var(--sl-color-primary-100);
   --border-radius: var(--sl-border-radius-x-large);
@@ -159,6 +179,14 @@ iframe {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: var(--sl-spacing-4x-large);
+}
+
+.info-dialog::part(header) {
+  margin-bottom: calc(-1 * var(--sl-spacing-medium));
+}
+
+.info-dialog::part(close-button) {
+  font-size: var(--sl-font-size-small);
 }
 
 @media (width <= 1024px) {

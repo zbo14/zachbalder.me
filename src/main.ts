@@ -6,6 +6,11 @@ const BACKGROUND_MIDPOINT_WIDTH = BACKGROUND_WIDTH / 2;
 const BACKGROUND_MIDPOINT_HEIGHT = BACKGROUND_HEIGHT / 2;
 const STROKE_WIDTH = 2;
 
+const dialog = document.querySelector('.info-dialog') as any;
+const openButton = dialog.nextElementSibling;
+
+openButton.addEventListener('click', () => dialog.show());
+
 const playbackButton = document.getElementById('playback-button');
 const waveButtons = document.querySelectorAll('.wave-button');
 const volumeFader = document.getElementById('volume-fader') as any;
