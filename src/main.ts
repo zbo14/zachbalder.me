@@ -37,17 +37,10 @@ let speed = 1;
 let height = volume * BACKGROUND_MIDPOINT_HEIGHT * 0.8;
 
 document.addEventListener('visibilitychange', () => {
-  if (!document.hidden) {
-    audioContext = new AudioContext();
-    gain = audioContext.createGain();
-    gain.connect(audioContext.destination);
-    gain.gain.value = volume;
-
-    if (source) {
-      source.playbackRate.value = speed;
-    }
-  } else if (isPlaying) {
-    onPlayback();
+  if (document.hidden) {
+    audioContext.suspend();
+  } else {
+    audioContext.resume();
   }
 });
 

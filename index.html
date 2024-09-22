@@ -3,15 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Zach Balder: music artist and software engineer."
-    />
+    <meta name="description" content="Music artist and software engineer." />
     <meta property="og:url" content="https://zachbalder.me" />
     <meta property="og:type" content="website" />
     <meta
       property="og:description"
-      content="Zach Balder: music artist and software engineer."
+      content="Music artist and software engineer."
     />
     <meta property="og:image" content="/images/me.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -19,7 +16,7 @@
     <meta property="twitter:url" content="https://zachbalder.me" />
     <meta
       name="twitter:description"
-      content="Zach Balder: music artist and software engineer."
+      content="Music artist and software engineer."
     />
     <meta name="twitter:image" content="/assets/images/me-li.png" />
     <title>Zach Balder</title>
@@ -40,10 +37,26 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Bangers&family=Special+Elite&display=swap"
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Bangers&family=Special+Elite&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript>
+    <link
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Special+Elite&display=swap"
     />
+  </noscript>
+  <link
+    rel="preload"
+    href="src/style.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript><link rel="stylesheet" href="src/style.css" /></noscript>
   </head>
   <body>
     <svg
@@ -236,6 +249,7 @@
                   Make sure your device and browser aren't muted/ on silent!
                 </sl-dialog>
                 <sl-icon-button
+                  label="Info dialog"
                   name="info-circle"
                   class="info-button"
                 ></sl-icon-button>
@@ -251,9 +265,9 @@
             scrolling="no"
             frameborder="no"
             allow="autoplay"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1754123085&color=%23f571bd&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1894272984&color=%23f571bd&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
           ></iframe>
-          <p>A song I released for an electronic pop project</p>
+          <p>An electronic pop song my friend and I made</p>
         </div>
         <div>
           <iframe
